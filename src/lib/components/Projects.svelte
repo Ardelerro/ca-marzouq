@@ -72,6 +72,9 @@
 			grid-template-columns: repeat(2, 1fr);
 			justify-content: center;
 		}
+		.projects-section {
+			padding-top: 5px;
+		}
 	}
 
 	@media (min-width: 1024px) {

@@ -119,7 +119,7 @@ p {
 
 @media (max-width: 768px) {
 	.about-section {
-		padding: 3rem 1rem 6rem;
+		padding: 3rem 1rem 4rem;
 
 	}
 
@@ -137,7 +137,7 @@ p {
 
 @media (max-width: 480px) {
 	.about-section {
-		padding: 3rem 1rem 6rem;
+		padding: 3rem 1rem 3rem;
 
 		border-radius: 8px;
 	}
@@ -156,7 +156,7 @@ p {
 
 @media (max-width: 360px) {
 	.about-section {
-		padding: 3rem 1rem 6rem;
+		padding: 3rem 1rem 2rem;
 	}
 
 	h1 {
@@ -170,18 +170,18 @@ p {
 
 @media (max-height: 500px) and (orientation: landscape) {
 	.about-section {
-		padding: 3rem 1rem 6rem;
+		padding: 3rem 1rem 4rem;
 
 	}
 
 	h1 {
-		padding: 3rem 1rem 6rem;
+		padding: 3rem 1rem 4rem;
 		margin-top: 10px;
 		margin-bottom: 0.75rem;
 	}
 
 	p {
-        padding: 3rem 1rem 6rem;
+        padding: 3rem 1rem 4rem;
 		margin-bottom: 0.75rem;
 	}
 }
