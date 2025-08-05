@@ -13,13 +13,11 @@
 	let hasAnimated = false;
 
 	onMount(() => {
-		// Set initial state
 		gsap.set(cardRef, {
 			opacity: 0,
 			y: 40
 		});
 
-		// Create intersection observer
 		observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
@@ -32,18 +30,16 @@
 							delay: index * 0.15,
 							ease: 'power2.out'
 						});
-						// Stop observing after animation triggers
 						observer.unobserve(cardRef);
 					}
 				});
 			},
 			{
-				threshold: 0.1, // Trigger when 10% of the card is visible
-				rootMargin: '50px' // Start animation 50px before the card enters viewport
+				threshold: 0.1,
+				rootMargin: '50px' 
 			}
 		);
 
-		// Start observing
 		if (cardRef) {
 			observer.observe(cardRef);
 		}

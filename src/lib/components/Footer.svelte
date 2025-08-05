@@ -66,7 +66,7 @@
 
   .footer-nav a:hover,
   .footer-nav a:focus-visible {
-    color: #38bdf8; /* matches your accent color */
+    color: #38bdf8;
     outline: none;
   }
 
