@@ -10,12 +10,40 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
-<Background />
-<Header />
-<div class="content">
-	<main>
-		{@render children?.()}
-	</main>
-</div>
-<Footer />
 
+<div class="app-container">
+	<Background />
+	<Header />
+	<div class="content">
+		<main>
+			{@render children?.()}
+		</main>
+	</div>
+</div>
+
+<style>
+	:global(html, body) {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.app-container {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+
+	.content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	main {
+		flex: 1;
+	}
+</style>

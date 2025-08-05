@@ -14,10 +14,8 @@
 		baseY: number;
 	}
 
-	const PARTICLE_COUNT = 150;
-	const MAX_DISTANCE = 200;
-	const PARTICLE_COLOR = 'rgba(56, 189, 248, 0.6)'; // blue-ish accent
-	const LINE_COLOR = 'rgba(56, 189, 248, 0.2)';
+	let PARTICLE_COUNT = 150;
+	let MAX_DISTANCE = 200;
 
 	let particles: Particle[] = [];
 	let animationFrameId: number;
@@ -25,6 +23,7 @@
 	let mouseY = 0;
 	let windowWidth = 0;
 	let windowHeight = 0;
+	let isMobile = false;
 
 	function random(min: number, max: number) {
 		return Math.random() * (max - min) + min;
@@ -51,15 +50,15 @@
 		if (!ctx) return;
 		ctx.beginPath();
 		ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-		ctx.fillStyle = PARTICLE_COLOR;
+		ctx.fillStyle = isMobile ? 'rgba(56, 189, 248, 0.3)' : 'rgba(56, 189, 248, 0.6)';
 		ctx.fill();
 	}
 
 	function drawLine(p1: Particle, p2: Particle, dist: number) {
 		if (!ctx) return;
-
 		const alpha = 1 - dist / MAX_DISTANCE;
-		ctx.strokeStyle = `rgba(56, 189, 248, ${alpha * 0.25})`;
+		const lineAlpha = isMobile ? alpha * 0.15 : alpha * 0.25;
+		ctx.strokeStyle = `rgba(56, 189, 248, ${lineAlpha})`;
 		ctx.lineWidth = 1;
 		ctx.beginPath();
 		ctx.moveTo(p1.x, p1.y);
@@ -72,7 +71,6 @@
 
 		const width = canvas.width;
 		const height = canvas.height;
-
 		ctx.clearRect(0, 0, width, height);
 
 		const parallaxStrength = 0.24;
@@ -102,30 +100,12 @@
 			for (let j = i + 1; j < PARTICLE_COUNT; j++) {
 				const p1 = particles[i];
 				const p2 = particles[j];
-				const dx =
-					p1.x +
-					(mouseX - centerX) * parallaxStrength * (p1.radius / 3) -
-					(p2.x + (mouseX - centerX) * parallaxStrength * (p2.radius / 3));
-				const dy =
-					p1.y +
-					(mouseY - centerY) * parallaxStrength * (p1.radius / 3) -
-					(p2.y + (mouseY - centerY) * parallaxStrength * (p2.radius / 3));
+				const dx = p1.baseX - p2.baseX;
+				const dy = p1.baseY - p2.baseY;
 				const dist = Math.sqrt(dx * dx + dy * dy);
 
 				if (dist < MAX_DISTANCE) {
-					drawLine(
-						{
-							...p1,
-							x: p1.x + (mouseX - centerX) * parallaxStrength * (p1.radius / 3),
-							y: p1.y + (mouseY - centerY) * parallaxStrength * (p1.radius / 3)
-						},
-						{
-							...p2,
-							x: p2.x + (mouseX - centerX) * parallaxStrength * (p2.radius / 3),
-							y: p2.y + (mouseY - centerY) * parallaxStrength * (p2.radius / 3)
-						},
-						dist
-					);
+					drawLine(p1, p2, dist);
 				}
 			}
 		}
@@ -139,6 +119,9 @@
 		windowHeight = window.innerHeight;
 		canvas.width = windowWidth;
 		canvas.height = windowHeight;
+		isMobile = windowWidth <= 768;
+		PARTICLE_COUNT = isMobile ? 100 : PARTICLE_COUNT
+		MAX_DISTANCE = isMobile ? 100 : MAX_DISTANCE;
 		initParticles(canvas.width, canvas.height);
 	}
 
@@ -163,6 +146,7 @@
 		};
 	});
 </script>
+
 
 <canvas bind:this={canvas} aria-hidden="true"></canvas>
 
