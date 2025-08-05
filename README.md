@@ -1,6 +1,6 @@
 # marzouq.ca — Personal Portfolio Website
 
-This is the source code for [marzouq.ca](https://marzouq.ca), mu personal portfolio website.  
+This is the source code for [marzouq.ca](https://marzouq.ca), my personal portfolio website.  
 Built with SvelteKit,  and hosted on Vercel.
 
 ---
