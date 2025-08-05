@@ -1,0 +1,72 @@
+[
+  {
+    "name": "FileTree",
+    "description": "A Windows application for visualizing and managing disk usage with a fast native backend in Rust and a React + Tauri frontend.",
+    "link": "https://github.com/Ardelerro/FileTree",
+    "technologies": [
+      "Rust",
+      "Tauri",
+      "React",
+      "TypeScript",
+      "Vite"
+    ]
+  },
+  {
+    "name": "ClimbVision",
+    "description": "A Flutter-based mobile tool built for assisting visually impaired rock climbers, leveraging OpenCV for image processing.",
+    "link": "https://github.com/Ardelerro/ClimbVision",
+    "technologies": [
+      "Flutter",
+      "OpenCV",
+      "Dart"
+    ]
+  },
+  {
+    "name": "LoyaltyToken SDK",
+    "description": "A TypeScript SDK to interact with an Ethereum LoyaltyToken smart contract for transfers, allowances, and balance queries.",
+    "link": "https://github.com/Ardelerro/ETH-Loyalty-Points",
+    "technologies": [
+      "TypeScript",
+      "Ethers.js",
+      "Solidity",
+      "Ethereum",
+      "Node.js"
+    ]
+  },
+  {
+    "name": "Arm-Controlled Robot",
+    "description": "A low-latency, sensor-based robotic arm system controlled via natural arm movements using IMUs and flex sensors, communicating with a web interface.",
+    "link": "",
+    "technologies": [
+      "Arduino",
+      "C++",
+      "ESP32",
+      "MPU6050",
+      "Servo"
+    ]
+  },
+  {
+    "name": "MusicLink Backend",
+    "description": "A FastAPI backend powering a tutoring platform that connects music learners with instructors, handling user data, bookings, and messaging.",
+    "link": "https://github.com/Ardelerro/music-link-backend",
+    "technologies": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Auth0",
+      "OpenAPI"
+    ]
+  },
+  {
+    "name": "Lil Ghost Mobile",
+    "description": "A gesture and UI-based Flutter app that controls home appliances via a Raspberry Pi server, syncing real-time settings over HTTP.",
+    "link": "https://github.com/Ardelerro/little-ghost-mobile",
+    "technologies": [
+      "Flutter",
+      "Dart",
+      "HTTP",
+      "Raspberry Pi",
+      "Gesture Control"
+    ]
+  }
+]
