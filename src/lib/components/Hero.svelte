@@ -81,77 +81,101 @@
 </div>
 
 <style>
-	.hero {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		min-height: 100vh;
-		padding: 4rem 1rem;
-		background: linear-gradient(to bottom, rgba(10, 10, 10, 0.65), rgba(10, 10, 10, 0.45));
-		position: relative;
-		overflow: hidden;
-		text-align: center;
-	}
+.hero {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 4rem 1rem;
+	background: linear-gradient(to bottom, rgba(10, 10, 10, 0.65), rgba(10, 10, 10, 0.45));
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+	box-sizing: border-box;
+}
 
-	.inner {
-		max-width: 900px;
-		margin: 0 auto;
-		z-index: 1;
+.inner {
+	max-width: 900px;
+	margin: 0 auto;
+	z-index: 1;
+	padding: 0 1rem;
+}
+
+h1 {
+	font-size: clamp(2.2rem, 6vw, 5rem);
+	line-height: 1.1;
+	font-weight: 700;
+	color: white;
+	margin-bottom: 1rem;
+	white-space: normal;
+	overflow: hidden;
+}
+
+p {
+	font-size: 1.25rem;
+	color: #d1d5db;
+	margin-bottom: 2rem;
+	line-height: 1.6;
+}
+
+.cta {
+	padding: 0.75rem 1.5rem;
+	font-size: 1.1rem;
+	font-weight: 600;
+	border: none;
+	background-color: var(--accent, #38bdf8);
+	color: black;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	transition:
+		transform 0.2s ease,
+		background-color 0.3s ease;
+}
+
+.cta:hover {
+	transform: scale(1.05);
+	background-color: #0ea5e9;
+}
+
+.scroll-indicator {
+	position: absolute;
+	bottom: 2rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1;
+	opacity: 0.75;
+	pointer-events: none;
+}
+
+.scroll-indicator svg {
+	display: block;
+	width: 24px;
+	height: 48px;
+}
+
+@media (max-width: 600px) {
+	.hero {
+		padding: 3rem 1rem 6rem;
 	}
 
 	h1 {
-		font-size: clamp(2.5rem, 6vw, 5rem);
-		line-height: 1.1;
-		font-weight: 700;
-		color: white;
-		margin-bottom: 1rem;
-		white-space: nowrap;
-		overflow: hidden;
+		font-size: 2rem;
+		white-space: normal;
 	}
 
 	p {
-		font-size: 1.25rem;
-		color: #d1d5db;
-		margin-bottom: 2rem;
-		line-height: 1.6;
+		font-size: 1rem;
+		margin-bottom: 1.5rem;
 	}
 
 	.cta {
-		padding: 0.75rem 1.5rem;
-		font-size: 1.1rem;
-		font-weight: 600;
-		border: none;
-		background-color: var(--accent, #38bdf8);
-		color: black;
-		border-radius: 0.5rem;
-		cursor: pointer;
-		transition:
-			transform 0.2s ease,
-			background-color 0.3s ease;
-	}
-
-	.cta:hover {
-		transform: scale(1.05);
-		background-color: #0ea5e9;
-	}
-
-	@media (max-width: 600px) {
-		p {
-			font-size: 1rem;
-		}
+		font-size: 1rem;
+		padding: 0.6rem 1.2rem;
 	}
 
 	.scroll-indicator {
-		position: absolute;
-		bottom: 2rem;
-		left: 50%;
-		transform: translateX(-50%);
-		z-index: 1;
-		opacity: 0.75;
-		pointer-events: none;
+		bottom: 1.5rem;
 	}
+}
 
-	.scroll-indicator svg {
-		display: block;
-	}
 </style>

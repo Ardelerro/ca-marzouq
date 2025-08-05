@@ -98,100 +98,131 @@
 </article>
 
 <style>
-	.project-card {
-		background-color: #1e293b57;
-		border: 1px solid #60a5fa;
-		border-radius: 12px;
-		padding: 1.5rem;
-		color: white;
-		position: relative;
-		transition: all 0.2s ease;
-		box-shadow: 0 6px 10px rgba(96, 165, 250, 0.35);
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		min-width: 520px;
-		min-height: 320px;
-		height: 100%;
-	}
-	.card-content {
-		flex-grow: 1;
-	}
-	.project-card:hover {
-		background-color: #1e293bd8;
-		box-shadow: 0 8px 28px rgba(96, 165, 250, 0.55);
-	}
+.project-card {
+	background-color: #1e293b57;
+	border: 1px solid #60a5fa;
+	border-radius: 12px;
+	padding: 1.5rem;
+	color: white;
+	position: relative;
+	transition: all 0.2s ease;
+	box-shadow: 0 6px 10px rgba(96, 165, 250, 0.35);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 100%;
+	min-height: 320px;
+	box-sizing: border-box;
+}
 
-	.header-row {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
-		gap: 1rem;
-		flex-wrap: nowrap;
+.card-content {
+	flex-grow: 1;
+}
+
+.project-card:hover {
+	background-color: #1e293bd8;
+	box-shadow: 0 8px 28px rgba(96, 165, 250, 0.55);
+}
+
+.header-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.project-title {
+	flex: 1;
+	margin: 0;
+	font-size: 1.3rem;
+	word-break: break-word;
+	overflow-wrap: break-word;
+}
+
+.project-index {
+	font-size: 1.3rem;
+	flex-shrink: 0;
+	color: #60a5fa;
+}
+
+.github-link {
+	flex-shrink: 0;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	color: #60a5fa;
+}
+
+.project-card:hover .github-link {
+	opacity: 1;
+}
+
+.github-icon {
+	width: 24px;
+	height: 24px;
+}
+
+h3,
+p {
+	word-break: break-word;
+	overflow-wrap: break-word;
+}
+
+h3 {
+	font-size: 1.3rem;
+	margin: 0 0 0.5rem 0;
+}
+
+p {
+	margin: 0.5rem 0 1rem;
+	font-size: 1rem;
+	color: #e2e8f0;
+}
+
+.tech-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	gap: 0.5rem;
+	margin-top: auto;
+}
+
+.tech {
+	background-color: #334155;
+	padding: 0.3rem 0.75rem;
+	border-radius: 8px;
+	font-size: 0.875rem;
+	text-align: center;
+	white-space: nowrap;
+	overflow-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+	.project-card {
+		padding: 1rem;
+		min-height: auto;
 	}
 
 	.project-title {
-		flex: 1;
-		margin: 0;
-		font-size: 1.3rem;
-		word-break: break-word;
-		overflow-wrap: break-word;
+		font-size: 1.1rem;
 	}
 
 	.project-index {
-		font-size: 1.3rem;
-		flex-shrink: 0;
-		color: #60a5fa;
-	}
-
-	.github-link {
-		flex-shrink: 0;
-		opacity: 0;
-		transition: opacity 0.3s ease;
-		color: #60a5fa;
-	}
-
-	.project-card:hover .github-link {
-		opacity: 1;
-	}
-
-	.github-icon {
-		width: 24px;
-		height: 24px;
-	}
-
-	h3,
-	p {
-		word-break: break-word;
-		overflow-wrap: break-word;
-	}
-
-	h3 {
-		font-size: 1.3rem;
-		margin: 0 0 0.5rem 0;
+		font-size: 1.1rem;
 	}
 
 	p {
-		margin: 0.5rem 0 1rem;
-		font-size: 1rem;
-		color: #e2e8f0;
+		font-size: 0.95rem;
 	}
 
 	.tech-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-		gap: 0.5rem;
-		margin-top: 1rem;
-		margin-top: auto;
+		grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
 	}
 
-	.tech {
-		background-color: #334155;
-		padding: 0.3rem 0.75rem;
-		border-radius: 8px;
-		font-size: 0.875rem;
-		text-align: center;
-		white-space: nowrap;
-		overflow-wrap: break-word;
+	.github-icon {
+		width: 20px;
+		height: 20px;
 	}
+}
+
 </style>
