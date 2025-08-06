@@ -5,7 +5,7 @@
 	let heading: HTMLHeadingElement;
 	let paragraphs: NodeListOf<HTMLParagraphElement>;
 	let isMobile = false;
-
+    export let aboutMe:{name:string, occupation:string, school:string, degree:string, bio:string[]}
 	onMount(() => {
 		let ScrollTrigger: any;
 		let handleResize: () => void;
@@ -73,11 +73,11 @@
 <section id="about" aria-labelledby="contact-heading" class="about-section" bind:this={section}>
 	<h1 id="contact-heading" bind:this={heading}>Hi there!</h1>
 	<p>
-		I'm <span class="highlight">Marzouq Mohsin</span>, a Software Engineer studying Electrical
-		Engineering & Computer Science at Western University.
+		I'm <span class="highlight">{aboutMe.name}</span>, a {aboutMe.occupation} studying {aboutMe.degree} at {aboutMe.school}.
 	</p>
-	<p>When I'm not coding, you'll catch me gaming, at the gym, or bluffing my friends at poker.</p>
-	<p>Enough about me, here's some of my work below:</p>
+    {#each aboutMe.bio as aboutSection}
+        <p>{aboutSection}</p>
+    {/each}
 </section>
 
 <style>

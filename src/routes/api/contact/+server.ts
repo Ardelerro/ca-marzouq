@@ -234,7 +234,6 @@ export const POST: RequestHandler = async ({ request }) => {
 		// Check for required environment variablesd
 		const brevoApiKey = import.meta.env.VITE_BREVO_API_KEY;
 		if (!brevoApiKey) {
-			console.error('VITE_BREVO_API_KEY environment variable is not set');
 			return json(
 				{ error: 'Email service is not configured. Please try again later.' },
 				{ status: 500 }
@@ -287,17 +286,9 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		if (!brevoResponse.ok) {
 			const errorText = await brevoResponse.text();
-			console.error('Brevo API error:', {
-				status: brevoResponse.status,
-				statusText: brevoResponse.statusText,
-				body: errorText
-			});
-
-			// Don't expose internal API errors to client
 			return json({ error: 'Failed to send email. Please try again later.' }, { status: 500 });
 		}
 
-		// Success response
 		return json(
 			{
 				success: true,
@@ -311,8 +302,6 @@ export const POST: RequestHandler = async ({ request }) => {
 			}
 		);
 	} catch (err) {
-		// Log error for debugging (make sure to sanitize logs in production)
-		console.error('Contact form error:', err);
 
 		return json(
 			{ error: 'An unexpected error occurred. Please try again later.' },
@@ -321,7 +310,6 @@ export const POST: RequestHandler = async ({ request }) => {
 	}
 };
 
-// Optional: Add other HTTP methods with appropriate responses
 export const GET: RequestHandler = async () => {
 	return json({ error: 'Method not allowed. Use POST to submit contact form.' }, { status: 405 });
 };

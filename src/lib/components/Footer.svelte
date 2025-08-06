@@ -1,16 +1,16 @@
 <script lang="ts">
-  const currentYear = new Date().getFullYear();
+    export let links: { github: string; linkedin: string };
 </script>
 
-<footer class="footer" role="contentinfo" aria-label="Site footer">
+<footer class="footer" aria-label="Site footer">
   <div class="container">
     <nav class="footer-nav" aria-label="Footer navigation">
       <ul>
         <li><a href="/#about" rel="noopener">About</a></li>
         <li><a href="/#projects" rel="noopener">Projects</a></li>
         <li><a href="/#contact" rel="noopener">Contact</a></li>
-        <li><a href="https://linkedin.com/in/marzouq-mohsin-50ba3424b" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        <li><a href="https://github.com/ardelerro" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href={links.github} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href={links.linkedin} target="_blank" rel="noopener noreferrer">GitHub</a></li>
       </ul>
     </nav>
   </div>

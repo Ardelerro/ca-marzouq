@@ -1,0 +1,21 @@
+{
+	"about-me": {
+		"name": "Marzouq Mohsin",
+		"occupation": "Software Engineer",
+		"school": "Western University",
+		"degree": "Electrical Engineering & Computer Science",
+		"bio": [
+			"When I'm not coding, you'll catch me gaming, at the gym, or bluffing my friends at poker.",
+			"Enough about me, here's some of my work below:"
+		]
+	},
+    "links":{
+        "github": "https://github.com/ardelerro",
+        "linkedin": "https://linkedin.com/in/marzouq-mohsin-50ba3424b"
+    },
+    "hero": {
+        "greeting": "Hi, I'm Marzouq",
+        "tagline": "Software engineer with a love for embedded systems, graphics, and elegant architecture.",
+        "cta": "Let's Get in Touch →"
+    }
+}

@@ -1,15 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
-	import projects from '$lib/data/projects.json';
-
+  export let projects: { name: string; description: string; link: string; technologies: string[] }[];
 	let sectionRef: HTMLElement;
 
 	onMount(async () => {
 		const { default: gsap } = await import('gsap');
 		const ScrollTrigger = (await import('gsap/ScrollTrigger')).default;
 		gsap.registerPlugin(ScrollTrigger);
-
 		gsap.utils.toArray('.project-card').forEach((card: any, index: number) => {
 			gsap.fromTo(
 				card,

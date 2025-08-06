@@ -4,10 +4,12 @@
   import ContactForm from '$lib/components/ContactForm.svelte';
   import AboutMe from '$lib/components/AboutMe.svelte';
   import Footer from '$lib/components/Footer.svelte';
+  export let data;
+  const { projects, bio } = data;
 </script>
 
-<Hero />
-<AboutMe />
-<Projects />
+<Hero hero={bio['hero']} />
+<AboutMe aboutMe={bio['about-me']} />
+<Projects {projects}/>
 <ContactForm />
-<Footer />
+<Footer links={bio['links']} />

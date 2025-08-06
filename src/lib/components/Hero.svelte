@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	export let hero: { greeting: string; tagline: string; cta: string };
 
 	let container: HTMLDivElement;
 	let headline: HTMLHeadingElement;
@@ -12,7 +13,7 @@
 		const ScrollTrigger = (await import('gsap/ScrollTrigger')).default;
 		gsap.registerPlugin(ScrollTrigger);
 
-		const text = 'Hi, I am Marzouq';
+		const text = hero.greeting;
 		headline.textContent = '';
 
 		const tl = gsap.timeline();
@@ -48,10 +49,10 @@
 	<div class="inner">
 		<h1 bind:this={headline}></h1>
 		<p bind:this={subtext}>
-			Software engineer with a love for embedded systems, graphics, and elegant architecture.
+			{hero.tagline}
 		</p>
 		<a href="#contact">
-			<button bind:this={cta} class="cta"> Let’s Get in Touch → </button>
+			<button bind:this={cta} class="cta">{hero.cta}</button>
 
 			<div bind:this={arrowContainer} class="scroll-indicator">
 				<svg
