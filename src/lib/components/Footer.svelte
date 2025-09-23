@@ -9,8 +9,8 @@
         <li><a href="/#about" rel="noopener">About</a></li>
         <li><a href="/#projects" rel="noopener">Projects</a></li>
         <li><a href="/#contact" rel="noopener">Contact</a></li>
-        <li><a href={links.github} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        <li><a href={links.linkedin} target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href={links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href={links.github} target="_blank" rel="noopener noreferrer">GitHub</a></li>
       </ul>
     </nav>
   </div>
