@@ -77,7 +77,8 @@
 		const centerX = windowWidth / 2;
 		const centerY = windowHeight / 2;
 
-		particles.forEach((p) => {
+		for (let i = 0; i < PARTICLE_COUNT; i++) {
+			const p = particles[i];
 			p.x += p.vx;
 			p.y += p.vy;
 
@@ -87,14 +88,17 @@
 			const offsetX = (mouseX - centerX) * parallaxStrength * (p.radius / 3);
 			const offsetY = (mouseY - centerY) * parallaxStrength * (p.radius / 3);
 
-			const baseX = p.x + offsetX;
-			const baseY = p.y + offsetY;
+			p.baseX = p.x + offsetX;
+			p.baseY = p.y + offsetY;
+		}
 
-			drawParticle({ ...p, x: baseX, y: baseY });
-
-			p.baseX = baseX;
-			p.baseY = baseY;
-		});
+		for (let i = 0; i < PARTICLE_COUNT; i++) {
+			drawParticle({
+				...particles[i],
+				x: particles[i].baseX,
+				y: particles[i].baseY
+			});
+		}
 
 		for (let i = 0; i < PARTICLE_COUNT; i++) {
 			for (let j = i + 1; j < PARTICLE_COUNT; j++) {
@@ -105,7 +109,9 @@
 				const dist = Math.sqrt(dx * dx + dy * dy);
 
 				if (dist < MAX_DISTANCE) {
-					drawLine(p1, p2, dist);
+					const { x: _x1, y: _y1, ...rest1 } = p1;
+					const { x: _x2, y: _y2, ...rest2 } = p2;
+					drawLine({ x: p1.baseX, y: p1.baseY, ...rest1 }, { x: p2.baseX, y: p2.baseY, ...rest2 }, dist);
 				}
 			}
 		}
@@ -120,7 +126,7 @@
 		canvas.width = windowWidth;
 		canvas.height = windowHeight;
 		isMobile = windowWidth <= 768;
-		PARTICLE_COUNT = isMobile ? 100 : PARTICLE_COUNT
+		PARTICLE_COUNT = isMobile ? 100 : PARTICLE_COUNT;
 		MAX_DISTANCE = isMobile ? 100 : MAX_DISTANCE;
 		initParticles(canvas.width, canvas.height);
 	}
@@ -146,7 +152,6 @@
 		};
 	});
 </script>
-
 
 <canvas bind:this={canvas} aria-hidden="true"></canvas>
 
